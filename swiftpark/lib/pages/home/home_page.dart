@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/text_styles.dart';
+import 'help_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -224,7 +225,12 @@ class HomePage extends StatelessWidget {
                 _BottomNavItem(
                   icon: Icons.build_outlined,
                   label: 'Help',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HelpPage()),
+                    );
+                  },
                 ),
                 _BottomNavItem(
                   icon: Icons.star_outline,
@@ -373,11 +379,13 @@ class _CenterNavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        Navigator.pushNamed(context, '/vehicle-status');
+      },
       child: Container(
         width: 64,
         height: 64,
-        margin: const EdgeInsets.only(bottom: 24),
+        padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
@@ -385,23 +393,22 @@ class _CenterNavItem extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
               blurRadius: 10,
-              spreadRadius: 2,
             ),
           ],
         ),
         child: Container(
-          margin: const EdgeInsets.all(2),
           decoration: const BoxDecoration(
-            color: Color(0xFF6400CD),
+            color: AppColors.primary,
             shape: BoxShape.circle,
           ),
           child: const Icon(
-            Icons.directions_car_filled,
+            Icons.directions_car,
             color: Colors.white,
-            size: 32,
+            size: 28,
           ),
         ),
       ),
     );
   }
 }
+

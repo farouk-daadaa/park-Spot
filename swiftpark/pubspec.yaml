@@ -67,6 +67,8 @@ flutter:
       - assets/images/map_placeholder.png
       - assets/images/parking1.png
       - assets/images/parking2.png
+      - assets/images/car_stat.png
+      - assets/images/owner.png
 
 
 
