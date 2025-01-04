@@ -9,7 +9,7 @@ class LanguagesPage extends StatefulWidget {
 }
 
 class _LanguagesPageState extends State<LanguagesPage> {
-  String selectedLanguage = 'français';
+  String selectedLanguage = 'english'; // Default to English selected
 
   Widget _buildLanguageOption({
     required String language,
@@ -17,29 +17,26 @@ class _LanguagesPageState extends State<LanguagesPage> {
     required String flag,
   }) {
     final isSelected = selectedLanguage == language;
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: Colors.grey[200]!),
-        ),
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+      leading: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            flag,
+            style: const TextStyle(fontSize: 22),
+          ),
+          const SizedBox(width: 12),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
       ),
-      child: RadioListTile<String>(
-        title: Row(
-          children: [
-            Text(
-              flag,
-              style: const TextStyle(fontSize: 22),
-            ),
-            const SizedBox(width: 12),
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
-        ),
+      trailing: Radio<String>(
         value: language,
         groupValue: selectedLanguage,
         activeColor: AppColors.primary,
@@ -49,6 +46,11 @@ class _LanguagesPageState extends State<LanguagesPage> {
           });
         },
       ),
+      onTap: () {
+        setState(() {
+          selectedLanguage = language;
+        });
+      },
     );
   }
 
@@ -79,6 +81,7 @@ class _LanguagesPageState extends State<LanguagesPage> {
             title: 'Français',
             flag: '🇫🇷',
           ),
+          Divider(color: Colors.grey[200]),
           _buildLanguageOption(
             language: 'english',
             title: 'English',

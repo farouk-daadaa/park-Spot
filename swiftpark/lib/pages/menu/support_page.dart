@@ -47,12 +47,13 @@ class SupportPage extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Container(
+              height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: Colors.grey[300]!),
               ),
               child: TextField(
-                maxLines: 8,
+                maxLines: null,
                 decoration: InputDecoration(
                   hintText: 'Write here...',
                   hintStyle: TextStyle(color: Colors.grey[400]),
@@ -61,13 +62,13 @@ class SupportPage extends StatelessWidget {
                 ),
               ),
             ),
-            const Spacer(),
+            const SizedBox(height: 24),
             SizedBox(
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(context).pushReplacementNamed('/home');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
