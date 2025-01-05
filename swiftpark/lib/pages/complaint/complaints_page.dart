@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../entities/complaint.dart';
+import 'new_complaint_page.dart';
 import '../../theme/app_colors.dart';
 
 class ComplaintsPage extends StatelessWidget {
@@ -10,12 +11,14 @@ class ComplaintsPage extends StatelessWidget {
     Complaint(
       id: 'ID120490',
       date: DateTime(2024, 1, 2, 9, 0),
-      vehicleNumber: 'E280CW',
-      parkingLot: '1060 Wien, Eszterhazygasse 12',
+      vehicleNumber: 'B 1234 CD',
+      vehicleModel: '2021 Audi Q3',
+      parkingLot: 'Capital University',
+      slot: 'Slot A01',
       description: '',
       status: 'Processing',
     ),
-    // Add more sample complaints...
+    // Add more complaints here
   ];
 
   @override
@@ -39,54 +42,100 @@ class ComplaintsPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey[300]!),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
-                  value: 'All car',
-                  isExpanded: true,
-                  items: ['All car'].map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (_) {},
-                ),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: complaints.length,
+        itemBuilder: (context, index) {
+          final complaint = complaints[index];
+          return Card(
+            margin: const EdgeInsets.only(bottom: 16),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(color: Colors.grey[300]!),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        complaint.id,
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 14,
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: _getStatusColor(complaint.status).withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          'Status: ${complaint.status}',
+                          style: TextStyle(
+                            color: _getStatusColor(complaint.status),
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.access_time,
+                        size: 16,
+                        color: Colors.grey[600],
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        DateFormat('yyyy-MM-dd HH:mm').format(complaint.date),
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    '${complaint.vehicleModel} • ${complaint.vehicleNumber}',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    '${complaint.parkingLot} • ${complaint.slot}',
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: complaints.length,
-              itemBuilder: (context, index) {
-                final complaint = complaints[index];
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: ComplaintCard(complaint: complaint),
-                );
-              },
-            ),
-          ),
-        ],
+          );
+        },
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ElevatedButton(
             onPressed: () {
-
-
-             //   MaterialPageRoute(builder: (context) => const NewComplaintPage()),
-
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const NewComplaintPage()),
+              );
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primary,
@@ -108,90 +157,15 @@ class ComplaintsPage extends StatelessWidget {
       ),
     );
   }
-}
 
-class ComplaintCard extends StatelessWidget {
-  final Complaint complaint;
-
-  const ComplaintCard({
-    Key? key,
-    required this.complaint,
-  }) : super(key: key);
-
-  Color _getStatusColor() {
-    switch (complaint.status.toLowerCase()) {
+  Color _getStatusColor(String status) {
+    switch (status.toLowerCase()) {
       case 'processing':
         return Colors.orange;
-      case 'in progress':
+      case 'completed':
         return Colors.green;
       default:
         return Colors.grey;
     }
   }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey[300]!),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Text(
-                complaint.id,
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontSize: 14,
-                ),
-              ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: _getStatusColor().withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Text(
-                  'Status: ${complaint.status}',
-                  style: TextStyle(
-                    color: _getStatusColor(),
-                    fontSize: 12,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Text(
-            DateFormat('yyyy-MM-dd HH:mm').format(complaint.date),
-            style: const TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 14,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            complaint.parkingLot,
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-            ),
-          ),
-          Text(
-            complaint.vehicleNumber,
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }
-
