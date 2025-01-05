@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:swiftpark/pages/menu/privacy_policy_page.dart';
 import 'package:swiftpark/pages/menu/support_page.dart';
 import '../../theme/app_colors.dart';
+import '../complaint/complaints_page.dart';
 import 'languages_page.dart';
 import 'my_cars_page.dart';
 
@@ -138,8 +139,10 @@ class _MenuPageState extends State<MenuPage> {
           _buildMenuItem(
             title: 'Réclamation',
             onTap: () {
-              // TODO: Implement complaint page navigation
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ComplaintsPage()),
+              );            },
           ),
           _buildMenuItem(
             title: 'Contacter le support',

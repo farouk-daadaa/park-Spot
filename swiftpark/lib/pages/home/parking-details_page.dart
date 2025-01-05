@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../theme/app_colors.dart';
 import 'chat_page.dart';
+import 'navigation_page.dart';
 
 class ParkingDetailsPage extends StatelessWidget {
   const ParkingDetailsPage({super.key});
@@ -99,7 +101,7 @@ class ParkingDetailsPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    '2B Bakkar, Hammam lif, Tunis',
+                    'Av. Mohammed V, Boumhel El Bassatine 2097',
                     style: TextStyle(
                       color: Colors.grey[600],
                       fontSize: 14,
@@ -259,7 +261,17 @@ class ParkingDetailsPage extends StatelessWidget {
                       const SizedBox(width: 24),
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NavigationPage(
+                                  destination: const LatLng(36.7247, 10.2827), // Coordinates for Av. Mohammed V
+                                  destinationAddress: 'Av. Mohammed V, Boumhel El Bassatine 2097',
+                                ),
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.primary,
                             minimumSize: const Size(double.infinity, 56),
