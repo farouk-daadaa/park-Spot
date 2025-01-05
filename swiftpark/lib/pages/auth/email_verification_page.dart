@@ -5,7 +5,7 @@ import 'create_password_page.dart';
 
 class EmailVerificationPage extends StatefulWidget {
   final String email;
-  const EmailVerificationPage({Key? key, required this.email}) : super(key: key);
+  const EmailVerificationPage({super.key, required this.email});
 
   @override
   State<EmailVerificationPage> createState() => _EmailVerificationPageState();
@@ -48,7 +48,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
           icon: const Icon(Icons.arrow_back, color: AppColors.text),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Verify your email 2/3', style: TextStyles.heading2),
+        title: const Text('Verify your email 2/3', style: TextStyles.heading2),
       ),
       body: SafeArea(
         child: Padding(
@@ -85,7 +85,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: AppColors.primary),
+                          borderSide: const BorderSide(color: AppColors.primary),
                         ),
                       ),
                       onChanged: (value) => _onCodeChanged(value, index),
@@ -110,7 +110,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text('Verify email', style: TextStyles.button),
+                child: const Text('Verify email', style: TextStyles.button),
               ),
               const SizedBox(height: 16),
               Center(

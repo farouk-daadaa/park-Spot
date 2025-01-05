@@ -4,7 +4,7 @@ import '../../theme/text_styles.dart';
 import 'email_input_page.dart';
 
 class CreateAccountPage extends StatelessWidget {
-  const CreateAccountPage({Key? key}) : super(key: key);
+  const CreateAccountPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CreateAccountPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: AppColors.text),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Create new account', style: TextStyles.heading2),
+        title: const Text('Create new account', style: TextStyles.heading2),
       ),
       body: SafeArea(
         child: Padding(
@@ -24,7 +24,7 @@ class CreateAccountPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Begin with creating new free account. This helps you keep your learning way easier.',
                 style: TextStyles.body,
               ),
@@ -43,7 +43,7 @@ class CreateAccountPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text('Continue with email', style: TextStyles.button),
+                child: const Text('Continue with email', style: TextStyles.button),
               ),
               const SizedBox(height: 16),
               const Center(child: Text('or', style: TextStyles.body)),

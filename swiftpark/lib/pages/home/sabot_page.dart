@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
 
 class SabotPage extends StatelessWidget {
-  const SabotPage({Key? key}) : super(key: key);
+  const SabotPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +44,10 @@ class SabotPage extends StatelessWidget {
           color: Colors.purple[50],
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Column(
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'VEHICLE',
               style: TextStyle(
                 fontSize: 12,
@@ -55,10 +55,10 @@ class SabotPage extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
                   '2021 Audi Q3',
                   style: TextStyle(
@@ -75,8 +75,8 @@ class SabotPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 24),
-            const Text(
+            SizedBox(height: 24),
+            Text(
               'PARKING LOT',
               style: TextStyle(
                 fontSize: 12,
@@ -84,10 +84,10 @@ class SabotPage extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
                   'Capital University',
                   style: TextStyle(
@@ -112,12 +112,12 @@ class SabotPage extends StatelessWidget {
         onPressed: () {},
         style: OutlinedButton.styleFrom(
           minimumSize: const Size(double.infinity, 56),
-          side: BorderSide(color: AppColors.primary),
+          side: const BorderSide(color: AppColors.primary),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        child: Text(
+        child: const Text(
           'Change vehicule',
           style: TextStyle(
             color: AppColors.primary,
@@ -136,9 +136,9 @@ class SabotPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Icon(Icons.gps_fixed, size: 20, color: Colors.white),
             SizedBox(width: 8),
             Text(

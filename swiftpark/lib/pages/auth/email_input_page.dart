@@ -4,7 +4,7 @@ import '../../theme/text_styles.dart';
 import 'email_verification_page.dart';
 
 class EmailInputPage extends StatefulWidget {
-  const EmailInputPage({Key? key}) : super(key: key);
+  const EmailInputPage({super.key});
 
   @override
   State<EmailInputPage> createState() => _EmailInputPageState();
@@ -43,7 +43,7 @@ class _EmailInputPageState extends State<EmailInputPage> {
           icon: const Icon(Icons.arrow_back, color: AppColors.text),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Add your email 1/3', style: TextStyles.heading2),
+        title: const Text('Add your email 1/3', style: TextStyles.heading2),
       ),
       body: SafeArea(
         child: Padding(
@@ -51,7 +51,7 @@ class _EmailInputPageState extends State<EmailInputPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Email', style: TextStyles.body),
+              const Text('Email', style: TextStyles.body),
               const SizedBox(height: 8),
               TextField(
                 controller: _emailController,
@@ -68,7 +68,7 @@ class _EmailInputPageState extends State<EmailInputPage> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.primary),
+                    borderSide: const BorderSide(color: AppColors.primary),
                   ),
                 ),
               ),
@@ -93,7 +93,7 @@ class _EmailInputPageState extends State<EmailInputPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text('Create an account', style: TextStyles.button),
+                child: const Text('Create an account', style: TextStyles.button),
               ),
               const Spacer(),
               Center(

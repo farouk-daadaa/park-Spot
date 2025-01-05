@@ -5,7 +5,7 @@ import '../../theme/app_colors.dart';
 
 // Update the HelpPage class to be stateful
 class HelpPage extends StatefulWidget {
-  const HelpPage({Key? key}) : super(key: key);
+  const HelpPage({super.key});
 
   @override
   State<HelpPage> createState() => _HelpPageState();
@@ -57,11 +57,11 @@ class _HelpPageState extends State<HelpPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(24, 16, 24, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
                     'Hello, Muhammad',
                     style: TextStyle(
@@ -131,7 +131,7 @@ class _HelpPageState extends State<HelpPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
                         color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(150),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       child: const Text(
                         'Start\nNow',

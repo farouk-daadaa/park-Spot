@@ -6,9 +6,9 @@ class ResetPasswordSuccessPage extends StatelessWidget {
   final String email;
 
   const ResetPasswordSuccessPage({
-    Key? key,
+    super.key,
     required this.email,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ResetPasswordSuccessPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: AppColors.text),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Reset password', style: TextStyles.heading2),
+        title: const Text('Reset password', style: TextStyles.heading2),
       ),
       body: SafeArea(
         child: Padding(
@@ -35,14 +35,14 @@ class ResetPasswordSuccessPage extends StatelessWidget {
                   color: AppColors.primary.withOpacity(0.1),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.mail_outline,
                   color: AppColors.primary,
                   size: 40,
                 ),
               ),
               const SizedBox(height: 24),
-              Text(
+              const Text(
                 'We have sent an email',
                 style: TextStyles.heading2,
                 textAlign: TextAlign.center,
@@ -68,7 +68,7 @@ class ResetPasswordSuccessPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text('Back to login', style: TextStyles.button),
+                child: const Text('Back to login', style: TextStyles.button),
               ),
               const Spacer(),
               Center(

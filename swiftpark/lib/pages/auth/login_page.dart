@@ -5,7 +5,7 @@ import '../../theme/text_styles.dart';
 import '../car/my_car_page.dart';
 
 class LoginPage extends StatefulWidget {
-const LoginPage({Key? key}) : super(key: key);
+const LoginPage({super.key});
 
 @override
 State<LoginPage> createState() => _LoginPageState();
@@ -86,7 +86,7 @@ leading: IconButton(
 icon: const Icon(Icons.arrow_back, color: AppColors.text),
 onPressed: () => Navigator.of(context).pop(),
 ),
-title: Text('Log into account', style: TextStyles.heading2),
+title: const Text('Log into account', style: TextStyles.heading2),
 ),
 body: SafeArea(
 child: Padding(
@@ -94,7 +94,7 @@ padding: const EdgeInsets.all(24.0),
 child: Column(
 crossAxisAlignment: CrossAxisAlignment.start,
 children: [
-Text('Email', style: TextStyles.body),
+const Text('Email', style: TextStyles.body),
 const SizedBox(height: 8),
 TextField(
 controller: _emailController,
@@ -111,12 +111,12 @@ borderSide: BorderSide(color: Colors.grey[300]!),
 ),
 focusedBorder: OutlineInputBorder(
 borderRadius: BorderRadius.circular(12),
-borderSide: BorderSide(color: AppColors.primary),
+borderSide: const BorderSide(color: AppColors.primary),
 ),
 ),
 ),
 const SizedBox(height: 16),
-Text('Password', style: TextStyles.body),
+const Text('Password', style: TextStyles.body),
 const SizedBox(height: 8),
 TextField(
 controller: _passwordController,
@@ -144,7 +144,7 @@ borderSide: BorderSide(color: Colors.grey[300]!),
 ),
 focusedBorder: OutlineInputBorder(
 borderRadius: BorderRadius.circular(12),
-borderSide: BorderSide(color: AppColors.primary),
+borderSide: const BorderSide(color: AppColors.primary),
 ),
 ),
 ),
@@ -177,7 +177,7 @@ color: Colors.white,
 strokeWidth: 2,
 ),
 )
-    : Text('Log in', style: TextStyles.button),
+    : const Text('Log in', style: TextStyles.button),
 ),
 const SizedBox(height: 16),
 Center(

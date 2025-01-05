@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
 
 class VehicleStatusPage extends StatelessWidget {
-  const VehicleStatusPage({Key? key}) : super(key: key);
+  const VehicleStatusPage({super.key});
 
   Widget _buildStatusCard({
     required Widget icon,
@@ -43,7 +43,7 @@ class VehicleStatusPage extends StatelessWidget {
                   ],
                 ),
               ),
-              if (statusIcon != null) statusIcon!,
+              if (statusIcon != null) statusIcon,
             ],
           ),
           const SizedBox(height: 4),
@@ -74,10 +74,10 @@ class VehicleStatusPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              const Expanded(
                 child: Text(
                   'TYRE PRESSURE',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
@@ -143,7 +143,7 @@ class VehicleStatusPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 4),
-              Text(
+              const Text(
                 'CONNECTED',
                 style: TextStyle(
                   fontSize: 14,
@@ -173,11 +173,11 @@ class VehicleStatusPage extends StatelessWidget {
                       child: CircularProgressIndicator(
                         value: 0.95,
                         backgroundColor: Colors.grey[200],
-                        valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+                        valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
                         strokeWidth: 3,
                       ),
                     ),
-                    Text(
+                    const Text(
                       '95%',
                       style: TextStyle(
                         fontSize: 10,
@@ -268,7 +268,7 @@ class VehicleStatusPage extends StatelessWidget {
                     Container(
                       width: 60,
                       height: 60,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: AppColors.primary,
                         shape: BoxShape.circle,
                       ),

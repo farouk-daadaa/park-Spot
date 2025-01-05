@@ -4,7 +4,7 @@ import '../../theme/text_styles.dart';
 import 'my_car_page.dart';
 
 class AddNewCarPage extends StatefulWidget {
-  const AddNewCarPage({Key? key}) : super(key: key);
+  const AddNewCarPage({super.key});
 
   @override
   State<AddNewCarPage> createState() => _AddNewCarPageState();
@@ -47,7 +47,7 @@ class _AddNewCarPageState extends State<AddNewCarPage> {
           icon: const Icon(Icons.arrow_back, color: AppColors.text),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Add New Car', style: TextStyles.heading2),
+        title: const Text('Add New Car', style: TextStyles.heading2),
       ),
       body: SafeArea(
         child: Padding(
@@ -55,7 +55,7 @@ class _AddNewCarPageState extends State<AddNewCarPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Name', style: TextStyles.body),
+              const Text('Name', style: TextStyles.body),
               const SizedBox(height: 8),
               TextField(
                 controller: _nameController,
@@ -72,12 +72,12 @@ class _AddNewCarPageState extends State<AddNewCarPage> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.primary),
+                    borderSide: const BorderSide(color: AppColors.primary),
                   ),
                 ),
               ),
               const SizedBox(height: 16),
-              Text('License plate number', style: TextStyles.body),
+              const Text('License plate number', style: TextStyles.body),
               const SizedBox(height: 8),
               TextField(
                 controller: _licensePlateController,
@@ -94,12 +94,12 @@ class _AddNewCarPageState extends State<AddNewCarPage> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.primary),
+                    borderSide: const BorderSide(color: AppColors.primary),
                   ),
                 ),
               ),
               const SizedBox(height: 16),
-              Text('Country', style: TextStyles.body),
+              const Text('Country', style: TextStyles.body),
               const SizedBox(height: 8),
               DropdownButtonFormField<String>(
                 value: _selectedCountry,
@@ -115,7 +115,7 @@ class _AddNewCarPageState extends State<AddNewCarPage> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.primary),
+                    borderSide: const BorderSide(color: AppColors.primary),
                   ),
                 ),
                 items: ['Tunisia', 'Other Country']
@@ -140,7 +140,7 @@ class _AddNewCarPageState extends State<AddNewCarPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Green license plate', style: TextStyles.body),
+                        const Text('Green license plate', style: TextStyles.body),
                         const SizedBox(height: 4),
                         Text(
                           'If you have an green license plate. Please turn on the switch.',
@@ -176,7 +176,7 @@ class _AddNewCarPageState extends State<AddNewCarPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text('Save Car', style: TextStyles.button),
+                child: const Text('Save Car', style: TextStyles.button),
               ),
               const SizedBox(height: 16),
               Center(

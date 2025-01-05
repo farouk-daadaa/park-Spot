@@ -7,9 +7,9 @@ class MyCarPage extends StatelessWidget {
   final bool isCarAdded;
 
   const MyCarPage({
-    Key? key,
+    super.key,
     this.isCarAdded = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MyCarPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: AppColors.text),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('My Car', style: TextStyles.heading2),
+        title: const Text('My Car', style: TextStyles.heading2),
       ),
       body: SafeArea(
         child: Padding(
@@ -45,7 +45,7 @@ class MyCarPage extends StatelessWidget {
                     child: Container(
                       width: 48, // Increased size
                       height: 48, // Increased size
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: AppColors.primary,
                         shape: BoxShape.circle,
                       ),
@@ -60,7 +60,7 @@ class MyCarPage extends StatelessWidget {
               ),
               if (isCarAdded) ...[
                 const SizedBox(height: 24),
-                Text(
+                const Text(
                   'Your car has been\nsuccessfully added',
                   style: TextStyles.heading2,
                   textAlign: TextAlign.center,

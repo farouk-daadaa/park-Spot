@@ -20,7 +20,7 @@ class AppTheme {
     ),
   );
   static final ButtonStyle skipButtonStyle = ElevatedButton.styleFrom(
-    backgroundColor: Color(0xFFF5F5F5),
+    backgroundColor: const Color(0xFFF5F5F5),
     foregroundColor: Colors.black,
     minimumSize: const Size(double.infinity, 56),
     shape: RoundedRectangleBorder(
@@ -30,7 +30,7 @@ class AppTheme {
 }
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({Key? key}) : super(key: key);
+  const OnboardingPage({super.key});
 
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();

@@ -3,7 +3,7 @@ import '../../theme/app_colors.dart';
 import 'chat_page.dart';
 
 class ParkingDetailsPage extends StatelessWidget {
-  const ParkingDetailsPage({Key? key}) : super(key: key);
+  const ParkingDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +77,8 @@ class ParkingDetailsPage extends StatelessWidget {
                           color: Colors.orange[50],
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: Row(
-                          children: const [
+                        child: const Row(
+                          children: [
                             Icon(
                               Icons.star,
                               color: Colors.orange,
@@ -237,9 +237,9 @@ class ParkingDetailsPage extends StatelessWidget {
                   const Spacer(),
                   Row(
                     children: [
-                      Column(
+                      const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             '15',
                             style: TextStyle(

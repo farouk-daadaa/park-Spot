@@ -1,10 +1,63 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
+import '../../services/location_service.dart';
 import '../../theme/app_colors.dart';
-import '../../theme/text_styles.dart';
 import 'help_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  GoogleMapController? mapController;
+  LatLng? currentLocation;
+  Set<Marker> markers = {};
+  String? errorMessage;
+
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentLocation();
+  }
+
+  Future<void> _getCurrentLocation() async {
+    try {
+      final position = await LocationService.getCurrentLocation();
+      if (position != null) {
+        setState(() {
+          currentLocation = LatLng(position.latitude, position.longitude);
+          markers.add(
+            Marker(
+              markerId: const MarkerId('currentLocation'),
+              position: currentLocation!,
+              infoWindow: const InfoWindow(title: 'Your Location'),
+            ),
+          );
+          errorMessage = null;
+        });
+        mapController?.animateCamera(
+          CameraUpdate.newCameraPosition(
+            CameraPosition(
+              target: currentLocation!,
+              zoom: 15,
+            ),
+          ),
+        );
+      } else {
+        setState(() {
+          errorMessage = "Unable to get location. Please check your settings.";
+        });
+      }
+    } catch (e) {
+      setState(() {
+        errorMessage = e.toString();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,11 +115,6 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 14),
-                  // Location selector
-                  Container(
-
-
-                  ),
                 ],
               ),
             ),
@@ -79,33 +127,36 @@ class HomePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: Stack(
                   children: [
-                    Image.asset(
-                      'assets/images/map_placeholder.png',
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                    Positioned(
-                      top: 70,
-                      right: 10,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
-                              blurRadius: 10,
-                              offset: const Offset(0, 5),
-                            ),
-                          ],
+                    if (currentLocation != null)
+                      GoogleMap(
+                        initialCameraPosition: CameraPosition(
+                          target: currentLocation!,
+                          zoom: 15,
                         ),
-                        child: const Text(
-                          'Laval Universi',
-                          style: TextStyle(fontSize: 12),
+                        onMapCreated: (controller) {
+                          mapController = controller;
+                        },
+                        markers: markers,
+                        myLocationEnabled: false,
+                        myLocationButtonEnabled: false,
+                        zoomControlsEnabled: false,
+                        mapToolbarEnabled: false,
+                      )
+                    else if (errorMessage != null)
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            errorMessage!,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.red),
+                          ),
                         ),
+                      )
+                    else
+                      const Center(
+                        child: CircularProgressIndicator(),
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -122,9 +173,9 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           'Shell Cars',
                           style: TextStyle(
@@ -158,19 +209,19 @@ class HomePage extends StatelessWidget {
               ),
             ),
             // Most visited car parks
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Your most visited car parks',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                   _ParkingItem(
                     name: 'Stationnement 24/7',
                     address: '1415 Av. Maguire',
@@ -178,7 +229,7 @@ class HomePage extends StatelessWidget {
                     freeSpots: '19 free',
                     distance: '5,8 km',
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                   _ParkingItem(
                     name: 'The Vallon Gardens',
                     address: '271 Av. de Chambly',
@@ -411,4 +462,3 @@ class _CenterNavItem extends StatelessWidget {
     );
   }
 }
-

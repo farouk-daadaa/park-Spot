@@ -4,7 +4,7 @@ import '../../theme/text_styles.dart';
 import 'success_page.dart';
 
 class CreatePasswordPage extends StatefulWidget {
-  const CreatePasswordPage({Key? key}) : super(key: key);
+  const CreatePasswordPage({super.key});
 
   @override
   State<CreatePasswordPage> createState() => _CreatePasswordPageState();
@@ -65,7 +65,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
           icon: const Icon(Icons.arrow_back, color: AppColors.text),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Create your password 3/3', style: TextStyles.heading2),
+        title: const Text('Create your password 3/3', style: TextStyles.heading2),
       ),
       body: SafeArea(
         child: Padding(
@@ -73,7 +73,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Password', style: TextStyles.body),
+              const Text('Password', style: TextStyles.body),
               const SizedBox(height: 8),
               TextField(
                 controller: _passwordController,
@@ -101,7 +101,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.primary),
+                    borderSide: const BorderSide(color: AppColors.primary),
                   ),
                 ),
               ),
@@ -140,7 +140,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text('Continue', style: TextStyles.button),
+                child: const Text('Continue', style: TextStyles.button),
               ),
               const Spacer(),
               Center(

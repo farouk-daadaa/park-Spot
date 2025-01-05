@@ -3,7 +3,7 @@ import '../../theme/app_colors.dart';
 import '../car/add_new_car_page.dart';
 
 class MyCarsPage extends StatelessWidget {
-  const MyCarsPage({Key? key}) : super(key: key);
+  const MyCarsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

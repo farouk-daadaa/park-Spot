@@ -3,7 +3,7 @@ import '../../theme/app_colors.dart';
 import '../../theme/text_styles.dart';
 
 class SuccessPage extends StatelessWidget {
-  const SuccessPage({Key? key}) : super(key: key);
+  const SuccessPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +29,14 @@ class SuccessPage extends StatelessWidget {
                   color: AppColors.primary.withOpacity(0.1),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.check,
                   color: AppColors.primary,
                   size: 40,
                 ),
               ),
               const SizedBox(height: 24),
-              Text(
+              const Text(
                 'Your account\nwas successfully created!',
                 style: TextStyles.heading1,
                 textAlign: TextAlign.center,
@@ -60,7 +60,7 @@ class SuccessPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text('Log in', style: TextStyles.button),
+                child: const Text('Log in', style: TextStyles.button),
               ),
             ],
           ),

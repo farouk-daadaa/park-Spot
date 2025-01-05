@@ -4,7 +4,7 @@ import '../../theme/text_styles.dart';
 import 'reset_password_success_page.dart';
 
 class ResetPasswordPage extends StatefulWidget {
-  const ResetPasswordPage({Key? key}) : super(key: key);
+  const ResetPasswordPage({super.key});
 
   @override
   State<ResetPasswordPage> createState() => _ResetPasswordPageState();
@@ -60,7 +60,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           icon: const Icon(Icons.arrow_back, color: AppColors.text),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Reset password', style: TextStyles.heading2),
+        title: const Text('Reset password', style: TextStyles.heading2),
       ),
       body: SafeArea(
         child: Padding(
@@ -68,12 +68,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'We will email you\na link to reset your password.',
                 style: TextStyles.body,
               ),
               const SizedBox(height: 24),
-              Text('Email', style: TextStyles.body),
+              const Text('Email', style: TextStyles.body),
               const SizedBox(height: 8),
               TextField(
                 controller: _emailController,
@@ -90,7 +90,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.primary),
+                    borderSide: const BorderSide(color: AppColors.primary),
                   ),
                 ),
               ),
@@ -115,7 +115,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     strokeWidth: 2,
                   ),
                 )
-                    : Text('Send', style: TextStyles.button),
+                    : const Text('Send', style: TextStyles.button),
               ),
               const Spacer(),
               Center(
