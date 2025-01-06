@@ -3,6 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import '../../services/google_maps_service.dart';
 import '../../services/location_service.dart';
+import 'e_ticket_page.dart';
 
 
 class RouteMapPage extends StatefulWidget {
@@ -279,8 +280,10 @@ class _RouteMapPageState extends State<RouteMapPage> {
               child: SafeArea(
                 child: ElevatedButton(
                   onPressed: () {
-                    // Handle E-Ticket generation
-                  },
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ETicketPage()),
+                    );                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF6C13E1),
                     foregroundColor: Colors.white,
