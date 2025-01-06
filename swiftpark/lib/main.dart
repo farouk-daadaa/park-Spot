@@ -3,6 +3,7 @@ import 'package:swiftpark/pages/auth/reset_password_page.dart';
 import 'package:swiftpark/pages/car/add_new_car_page.dart';
 import 'package:swiftpark/pages/car/my_car_page.dart';
 import 'package:swiftpark/pages/home/home_page.dart';
+import 'package:swiftpark/pages/home/parking_lot_page.dart';
 import 'package:swiftpark/pages/home/vehicle_status_page.dart';
 import 'package:swiftpark/pages/menu/languages_page.dart';
 import 'package:swiftpark/pages/menu/notifications_page.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         '/my-cars': (context) => const MyCarPage(),
         '/add-new-car': (context) => const AddNewCarPage(),
         '/vehicle-status': (context) => const VehicleStatusPage(),
+        '/parking-lot': (context) => const ParkingLotPage(),
 
       },
     );
