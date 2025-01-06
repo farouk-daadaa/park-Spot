@@ -32,6 +32,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Roboto',
       ),
+      debugShowCheckedModeBanner: false,  // This will remove the debug banner
+
       initialRoute: '/',
       routes: {
         '/': (context) => const WelcomePage(),
