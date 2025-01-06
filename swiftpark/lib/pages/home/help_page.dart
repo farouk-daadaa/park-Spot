@@ -3,7 +3,6 @@ import 'package:swiftpark/pages/home/parking-details_page.dart';
 import 'package:swiftpark/pages/home/sabot_page.dart';
 import '../../theme/app_colors.dart';
 
-// Update the HelpPage class to be stateful
 class HelpPage extends StatefulWidget {
   const HelpPage({super.key});
 
@@ -12,7 +11,7 @@ class HelpPage extends StatefulWidget {
 }
 
 class _HelpPageState extends State<HelpPage> {
-  String _activeOption = 'sabot'; // Default active option
+  String _activeOption = 'sabot';
 
   void _handleOptionTap(String option) {
     setState(() {
@@ -54,102 +53,104 @@ class _HelpPageState extends State<HelpPage> {
         centerTitle: true,
       ),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(24, 16, 24, 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Hello, Muhammad',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    'Do you need\nHelp',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      height: 1.2,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 32),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Row(
-                children: [
-                  _HelpOption(
-                    icon: Icons.directions_car,
-                    label: 'Sabot',
-                    onTap: () => _handleOptionTap('sabot'),
-                    backgroundColor: _activeOption == 'sabot'
-                        ? AppColors.primary
-                        : Colors.grey[100]!,
-                    isLight: _activeOption == 'sabot',
-                  ),
-                  const SizedBox(width: 16),
-                  _HelpOption(
-                    icon: Icons.people,
-                    label: 'Garage',
-                    onTap: () => _handleOptionTap('garage'),
-                    backgroundColor: _activeOption == 'garage'
-                        ? AppColors.primary
-                        : Colors.grey[100]!,
-                    isLight: _activeOption == 'garage',
-                  ),
-                ],
-              ),
-            ),
-            const Spacer(),
-            Center(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: 240,
-                    height: 240,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xFFF3F3F3),
-                    ),
-                  ),
-                  Image.asset(
-                    'assets/images/car_charging.png',
-                    width: 270,
-                  ),
-                  Positioned(
-                    bottom: 20,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(20),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.fromLTRB(24, 16, 24, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Hello, Muhammad',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey,
                       ),
-                      child: const Text(
-                        'Start\nNow',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
-                          height: 1.2,
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      'Do you need\nHelp',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        height: 1.2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 32),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Row(
+                  children: [
+                    _HelpOption(
+                      icon: Icons.directions_car,
+                      label: 'Sabot',
+                      onTap: () => _handleOptionTap('sabot'),
+                      backgroundColor: _activeOption == 'sabot'
+                          ? AppColors.primary
+                          : Colors.grey[100]!,
+                      isLight: _activeOption == 'sabot',
+                    ),
+                    const SizedBox(width: 16),
+                    _HelpOption(
+                      icon: Icons.people,
+                      label: 'Garage',
+                      onTap: () => _handleOptionTap('garage'),
+                      backgroundColor: _activeOption == 'garage'
+                          ? AppColors.primary
+                          : Colors.grey[100]!,
+                      isLight: _activeOption == 'garage',
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 32),
+              Center(
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      width: 240,
+                      height: 240,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0xFFF3F3F3),
+                      ),
+                    ),
+                    Image.asset(
+                      'assets/images/car_charging.png',
+                      width: 190,
+                    ),
+                    Positioned(
+                      bottom: 20,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: AppColors.primary,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Text(
+                          'Start\nNow',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            height: 1.2,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 40),
-          ],
+              const SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(
@@ -315,3 +316,4 @@ class _CenterNavItem extends StatelessWidget {
     );
   }
 }
+

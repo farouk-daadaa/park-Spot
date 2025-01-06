@@ -34,16 +34,21 @@ class _AddCardPageState extends State<AddCardPage> {
                     onPressed: () => Navigator.pop(context),
                     padding: EdgeInsets.zero,
                   ),
-                  const Text(
-                    'Payment',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'Payment',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
+
 
             // Card Preview
             Container(

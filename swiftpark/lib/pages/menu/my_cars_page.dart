@@ -18,12 +18,17 @@ class MyCarsPage extends StatelessWidget {
         ),
         title: const Text(
           'My Cars',
+
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
             fontWeight: FontWeight.w600,
+
           ),
+
         ),
+        centerTitle: true, // This centers the title
+
       ),
       body: Stack(
         children: [

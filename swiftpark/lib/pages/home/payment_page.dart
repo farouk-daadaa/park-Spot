@@ -30,7 +30,8 @@ class _PaymentPageState extends State<PaymentPage> {
             fontWeight: FontWeight.w600,
             color: Colors.black,
           ),
-        ),
+        ),  centerTitle: true, // Ensures the title is centered
+
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

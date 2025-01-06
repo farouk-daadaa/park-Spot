@@ -72,7 +72,8 @@ class _LanguagesPageState extends State<LanguagesPage> {
             fontSize: 18,
             fontWeight: FontWeight.w600,
           ),
-        ),
+        ),      centerTitle: true, // This centers the title
+
       ),
       body: Column(
         children: [

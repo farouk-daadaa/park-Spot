@@ -27,6 +27,7 @@ class OrderDetailPage extends StatelessWidget {
                     onPressed: () => Navigator.pop(context),
                     padding: EdgeInsets.zero,
                   ),
+                  const Spacer(), // Pushes the text to the center
                   const Text(
                     'Parking',
                     style: TextStyle(
@@ -34,9 +35,11 @@ class OrderDetailPage extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
+                  const Spacer(), // Pushes the text to the center from the other side
                 ],
               ),
             ),
+
 
             // Content
             Expanded(

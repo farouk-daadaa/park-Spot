@@ -49,6 +49,8 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text('Verify your email 2/3', style: TextStyles.heading2),
+        centerTitle: true, // This centers the title
+
       ),
       body: SafeArea(
         child: Padding(

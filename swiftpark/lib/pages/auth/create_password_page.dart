@@ -66,6 +66,8 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text('Create your password 3/3', style: TextStyles.heading2),
+        centerTitle: true, // This centers the title
+
       ),
       body: SafeArea(
         child: Padding(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'order_detail_page.dart';
 
 class ParkingLotPage extends StatefulWidget {
@@ -156,7 +155,7 @@ class _ParkingLotPageState extends State<ParkingLotPage> {
                             )
                                 : Container(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
+                                horizontal: 8,
                                 vertical: 6,
                               ),
                               decoration: BoxDecoration(
@@ -168,22 +167,26 @@ class _ParkingLotPageState extends State<ParkingLotPage> {
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  if (isSelected) ...[
-                                    const Icon(
-                                      Icons.check_circle,
-                                      color: Colors.white,
-                                      size: 14,
+                                  if (isSelected)
+                                    const Padding(
+                                      padding: EdgeInsets.only(right: 4),
+                                      child: Icon(
+                                        Icons.check_circle,
+                                        color: Colors.white,
+                                        size: 14,
+                                      ),
                                     ),
-                                    const SizedBox(width: 4),
-                                  ],
-                                  Text(
-                                    spotId,
-                                    style: TextStyle(
-                                      color: isSelected
-                                          ? Colors.white
-                                          : Colors.grey.shade700,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
+                                  Flexible(
+                                    child: Text(
+                                      spotId,
+                                      style: TextStyle(
+                                        color: isSelected
+                                            ? Colors.white
+                                            : Colors.grey.shade700,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
                                 ],
@@ -320,3 +323,4 @@ class ParkingGridPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
+

@@ -45,12 +45,15 @@ class PrivacyPolicyPage extends StatelessWidget {
         ),
         title: const Text(
           'Terms & Condition',
+
           style: TextStyle(
+
             color: Colors.black,
             fontSize: 18,
             fontWeight: FontWeight.w600,
           ),
-        ),
+        ),      centerTitle: true, // This centers the title
+
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),

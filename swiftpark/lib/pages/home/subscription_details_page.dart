@@ -33,16 +33,21 @@ class SubscriptionDetailsPage extends StatelessWidget {
                     onPressed: () => Navigator.pop(context),
                     padding: EdgeInsets.zero,
                   ),
-                  const Text(
-                    'Subscription',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
+                  Expanded(
+                    child: Center(
+                      child: const Text(
+                        'Subscription',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
+
 
             // Content
             Expanded(

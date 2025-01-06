@@ -148,9 +148,15 @@ class ReportViewPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Text('Home Page'),
+                  child: const Text(
+                    'Home Page',
+                    style: TextStyle(
+                      color: Colors.white, // Set the text color to white
+                    ),
+                  ),
                 ),
               ),
+
             ],
           ),
         ),

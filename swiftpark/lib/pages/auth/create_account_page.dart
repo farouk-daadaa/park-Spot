@@ -17,7 +17,11 @@ class CreateAccountPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text('Create new account', style: TextStyles.heading2),
+        centerTitle: true, // This centers the title
+
       ),
+
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),

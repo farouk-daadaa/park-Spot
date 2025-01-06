@@ -52,6 +52,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                     onPressed: () => Navigator.pop(context),
                     padding: EdgeInsets.zero,
                   ),
+                  const Spacer(), // Pushes the text to the center
                   const Text(
                     'Subscription',
                     style: TextStyle(
@@ -59,9 +60,11 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+                  const Spacer(), // Pushes the text to the center from the other side
                 ],
               ),
             ),
+
 
             // Parking Info
             Padding(

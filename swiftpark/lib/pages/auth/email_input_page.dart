@@ -44,6 +44,8 @@ class _EmailInputPageState extends State<EmailInputPage> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text('Add your email 1/3', style: TextStyles.heading2),
+        centerTitle: true, // This centers the title
+
       ),
       body: SafeArea(
         child: Padding(

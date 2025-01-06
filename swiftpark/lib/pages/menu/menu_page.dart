@@ -24,11 +24,13 @@ class _MenuPageState extends State<MenuPage> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          title: const Text(
-            'Êtes-vous sûr ?',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
+          title: const Center(
+            child: Text(
+              'Êtes-vous sûr ?',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           actions: [

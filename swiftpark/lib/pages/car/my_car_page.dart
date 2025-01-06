@@ -22,6 +22,8 @@ class MyCarPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text('My Car', style: TextStyles.heading2),
+        centerTitle: true, // This centers the title
+
       ),
       body: SafeArea(
         child: Padding(

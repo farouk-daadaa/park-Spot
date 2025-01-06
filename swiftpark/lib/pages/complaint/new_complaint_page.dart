@@ -152,6 +152,7 @@ class _NewComplaintPageState extends State<NewComplaintPage> {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
+                      color: Colors.white
                     ),
                   ),
                 ),
