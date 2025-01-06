@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:swiftpark/pages/home/parking_map_page.dart';
+import 'package:swiftpark/pages/home/submap.dart';
 import '../../services/location_service.dart';
 import '../../theme/app_colors.dart';
 import 'help_page.dart';
@@ -291,7 +292,11 @@ class _HomePageState extends State<HomePage> {
                 _BottomNavItem(
                   icon: Icons.star_outline,
                   label: 'Subscriptions',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SubscriptionMapPage()),);
+                  },
                 ),
               ],
             ),

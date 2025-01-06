@@ -82,6 +82,11 @@ flutter:
       - assets/images/parking2.png
       - assets/images/car_stat.png
       - assets/images/owner.png
+      - assets/images/mastercard.png
+      - assets/images/visa.png
+      - assets/images/d17.png
+      - assets/images/card_bg.png
+
 
 
 
